@@ -1,0 +1,5 @@
+library(tidyverse)
+df<-read.table("C:/Users/akihi/Downloads/Mediation_pneumocopd.csv", sep=",",header=TRUE)
+df<-na.omit(df)
+df %>% mutate_all()
+process(data=df,y="death",x="steroid",m="time_to_stability",cov=c("age","gender","bun","rr","ams","hr","hot","adl"),model=4,boot=10000,total=1,seed=1234)
